@@ -8,8 +8,8 @@ namespace RepositoryWithNoCompositeKeys
         public Guid Id { get; set; }
         public Guid CustomerId { get; set; }
 
-        public int? IntOnOtherSideOfDB { get; set; }
+        public int? MostImportantOrderLine { get; set; }
 
-        public Customer Customer { get; set; } = null!;
+        public ICollection<OrderLine> OrderLines { get; set; } = null!;
     }
 }

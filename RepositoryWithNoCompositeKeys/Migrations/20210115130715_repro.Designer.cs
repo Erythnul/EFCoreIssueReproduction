@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RepositoryWithNoCompositeKeys;
 
 namespace RepositoryWithNoCompositeKeys.Migrations
 {
     [DbContext(typeof(NoCompositeKeyContext))]
-    partial class NoCompositeKeyContextModelSnapshot : ModelSnapshot
+    [Migration("20210115130715_repro")]
+    partial class repro
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

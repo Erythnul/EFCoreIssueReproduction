@@ -9,25 +9,17 @@ namespace EfCoreRepro.DTOs.MapperProfile
         {
             CreateMap<RepositoryWithCompositeKeys.Order, OrderModel>()
                 .ForMember(dst => dst.OrderId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.MostImportantOrderLine, opt => opt.MapFrom(src => src.Customer.Group.SubGroup.Children.FirstOrDefault(x => x.CustomerGroupSubGroupChildNumber == src.IntOnOtherSideOfDB)));
+                .ForMember(dst => dst.MostImportantOrderLine, opt => opt.MapFrom(src => src.OrderLines.FirstOrDefault(x=>x.OrderLineNumber == src.MostImportantOrderLine)));
 
-            CreateMap<RepositoryWithCompositeKeys.CustomerGroupSubGroupChild, OrderLineModel>()
-                .ForMember(dst => dst.OrderLineId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.Description));
-
-            CreateMap<RepositoryWithCompositeKeys.CustomerGroupChild, OrderLineModel>()
+            CreateMap<RepositoryWithCompositeKeys.OrderLine, OrderLineModel>()
                 .ForMember(dst => dst.OrderLineId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.Description));
 
             CreateMap<RepositoryWithNoCompositeKeys.Order, OrderModel>()
                 .ForMember(dst => dst.OrderId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.MostImportantOrderLine, opt => opt.MapFrom(src => src.Customer.Group.SubGroup.Children.FirstOrDefault(x => x.CustomerGroupSubGroupChildNumber == src.IntOnOtherSideOfDB)));
+                .ForMember(dst => dst.MostImportantOrderLine, opt => opt.MapFrom(src => src.OrderLines.FirstOrDefault(x=>x.OrderLineNumber == src.MostImportantOrderLine)));
 
-            CreateMap<RepositoryWithNoCompositeKeys.CustomerGroupSubGroupChild, OrderLineModel>()
-                .ForMember(dst => dst.OrderLineId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.Description));
-
-            CreateMap<RepositoryWithNoCompositeKeys.CustomerGroupChild, OrderLineModel>()
+            CreateMap<RepositoryWithNoCompositeKeys.OrderLine, OrderLineModel>()
                 .ForMember(dst => dst.OrderLineId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.Description));
         }

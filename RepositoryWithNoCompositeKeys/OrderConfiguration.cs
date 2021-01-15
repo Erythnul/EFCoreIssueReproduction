@@ -11,15 +11,10 @@ namespace RepositoryWithNoCompositeKeys
         {
             builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.Customer)
-                .WithMany(x => x.Orders)
-                .HasForeignKey(x => x.CustomerId);
-
             builder.HasData(new Order
             {
                 Id = Guid.Parse("00000000-0000-0000-0000-000000000001"),
-                CustomerId = Guid.Parse("00000000-0000-0000-0000-000000000002"),
-                IntOnOtherSideOfDB = 2,
+                MostImportantOrderLine = 2,
             });
         }
     }
