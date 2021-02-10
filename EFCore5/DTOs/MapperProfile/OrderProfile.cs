@@ -7,21 +7,14 @@ namespace EfCoreRepro.DTOs.MapperProfile
     {
         public OrderProfile()
         {
-            CreateMap<RepositoryWithCompositeKeys.Order, OrderModel>()
-                .ForMember(dst => dst.OrderId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.MostImportantOrderLine, opt => opt.MapFrom(src => src.OrderLines.FirstOrDefault(x=>x.OrderLineNumber == src.MostImportantOrderLine)));
+            //AllowNullDestinationValues = false;
 
-            CreateMap<RepositoryWithCompositeKeys.OrderLine, OrderLineModel>()
-                .ForMember(dst => dst.OrderLineId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.Description));
+            CreateMap<Repository.Order, OrderModel>()
+                .ForMember(dst => dst.ShippingAddress, opt => opt.MapFrom(src => src.ShippingAddress.Country != null ? src.ShippingAddress : default))
+                .ForAllOtherMembers(opt => opt.Ignore());
 
-            CreateMap<RepositoryWithNoCompositeKeys.Order, OrderModel>()
-                .ForMember(dst => dst.OrderId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.MostImportantOrderLine, opt => opt.MapFrom(src => src.OrderLines.FirstOrDefault(x=>x.OrderLineNumber == src.MostImportantOrderLine)));
+            CreateMap<Repository.Address, AddressModel>();
 
-            CreateMap<RepositoryWithNoCompositeKeys.OrderLine, OrderLineModel>()
-                .ForMember(dst => dst.OrderLineId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.Description));
         }
     }
 }

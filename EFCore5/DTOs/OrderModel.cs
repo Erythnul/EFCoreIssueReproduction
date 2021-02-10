@@ -6,7 +6,14 @@ namespace EfCoreRepro.DTOs
 {
     public class OrderModel
     {
-        public Guid? OrderId { get; set; }
-        public OrderLineModel MostImportantOrderLine { get; set; }
+        public AddressModel? ShippingAddress { get; set; }
+    }
+
+    public class AddressModel
+    {
+        public string? Street { get; set; }
+        public int HouseNumber { get; set; }
+        public string? City { get; set; }
+        public string? Country { get; set; }
     }
 }

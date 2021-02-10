@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30803.129
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreIssueRepro", "EFCore5\EFCoreIssueRepro.csproj", "{99D46915-04B3-4847-B6F9-EDB09A9A62EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoryWithCompositeKeys", "Repository\RepositoryWithCompositeKeys.csproj", "{DDA58CC2-8437-41A5-A4E0-40A03A19863D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoryWithNoCompositeKeys", "RepositoryWithNoCompositeKeys\RepositoryWithNoCompositeKeys.csproj", "{C322B72D-A8D9-4659-904A-81660862B92B}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{99D46915-04B3-4847-B6F9-EDB09A9A62EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99D46915-04B3-4847-B6F9-EDB09A9A62EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99D46915-04B3-4847-B6F9-EDB09A9A62EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDA58CC2-8437-41A5-A4E0-40A03A19863D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDA58CC2-8437-41A5-A4E0-40A03A19863D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDA58CC2-8437-41A5-A4E0-40A03A19863D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDA58CC2-8437-41A5-A4E0-40A03A19863D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C322B72D-A8D9-4659-904A-81660862B92B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C322B72D-A8D9-4659-904A-81660862B92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C322B72D-A8D9-4659-904A-81660862B92B}.Release|Any CPU.ActiveCfg = Release|Any CPU
